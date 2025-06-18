@@ -63,7 +63,7 @@ st.markdown("""
 def load_model():
     """Load the pre-trained model from joblib file"""
     try:
-        model = joblib.load('best_logistic_regression_model.joblib')
+        model = joblib.load('model/best_logistic_regression_model.joblib')
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")

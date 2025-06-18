@@ -31,18 +31,21 @@ A Streamlit web application that predicts whether you are an **Introvert** or **
 
 ## 🎯 Usage
 
-1. **Start the Streamlit application**:
+1. **Ensure the model file is in the correct location**:
+   - The model file should be at `model/best_logistic_regression_model.joblib`.
+
+2. **Start the Streamlit application**:
    ```bash
    streamlit run app.py
    ```
 
-2. **Open your web browser** and go to the URL displayed in the terminal (usually `http://localhost:8501`)
+3. **Open your web browser** and go to the URL displayed in the terminal (usually `http://localhost:8501`)
 
-3. **Answer the questions**:
+4. **Answer the questions**:
    - Do you feel drained after socializing? (Yes/No)
    - Do you experience stage fear? (Yes/No)
 
-4. **Click "Predict My Personality Type"** to get your prediction
+5. **Click "Predict My Personality Type"** to get your prediction
 
 ## 📊 Model Details
 
@@ -58,9 +61,13 @@ A Streamlit web application that predicts whether you are an **Introvert** or **
 
 ```
 ├── app.py                              # Main Streamlit application
-├── best_logistic_regression_model.joblib  # Pre-trained model file
+├── model/
+│   └── best_logistic_regression_model.joblib  # Pre-trained model file
 ├── requirements.txt                    # Python dependencies
-└── README.md                          # This file
+├── README.md                           # This file
+├── notebook/                           # (Optional) Jupyter notebooks
+├── venv/                               # Python virtual environment
+└── .gitignore
 ```
 
 ## 🔧 Customization
@@ -69,10 +76,10 @@ A Streamlit web application that predicts whether you are an **Introvert** or **
 
 If you want to use a different model file (e.g., `best_random_forest_model.joblib`), simply:
 
-1. Replace the model file in the project directory
-2. Update the model filename in `app.py` line 35:
+1. Replace the model file in the `model/` directory
+2. Update the model filename in `app.py`:
    ```python
-   model = joblib.load('your_model_filename.joblib')
+   model = joblib.load('model/your_model_filename.joblib')
    ```
 
 ### Modifying Input Features
@@ -83,7 +90,7 @@ If your model expects different features, update the `preprocess_input()` functi
 
 ### Common Issues
 
-1. **Model loading error**: Ensure the joblib file is in the same directory as `app.py`
+1. **Model loading error**: Ensure the joblib file is in the `model/` directory (i.e., `model/best_logistic_regression_model.joblib`)
 2. **Import errors**: Make sure all dependencies are installed with `pip install -r requirements.txt`
 3. **Port already in use**: If port 8501 is busy, Streamlit will automatically use the next available port
 
@@ -91,7 +98,7 @@ If your model expects different features, update the `preprocess_input()` functi
 
 If you encounter any issues:
 1. Check that all dependencies are installed correctly
-2. Verify the model file exists and is not corrupted
+2. Verify the model file exists at `model/best_logistic_regression_model.joblib` and is not corrupted
 3. Check the terminal output for error messages
 
 ## 📝 License
